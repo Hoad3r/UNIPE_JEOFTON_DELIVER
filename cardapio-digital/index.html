@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cardápio digital do Restaurante Bella Vista — pratos, bebidas e sobremesas">
+  <title>Bella Vista — Cardápio Digital</title>
+
+  <!-- Google Fonts — antes dos CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- ITCSS order: settings → base → layout → components → utilities -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components/nav.css">
+  <link rel="stylesheet" href="css/components/hero.css">
+  <link rel="stylesheet" href="css/components/category-filter.css">
+  <link rel="stylesheet" href="css/components/item-card.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/utilities.css">
+</head>
+<body>
+
+  <div class="page-layout">
+
+    <!-- ═══ HEADER / NAV ═══ -->
+    <header class="page-layout__header">
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#hero" class="nav__logo">Bella Vista</a>
+
+        <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav__links" id="nav-links" role="list">
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li>
+            <a href="https://wa.me/5583999990000" target="_blank" rel="noopener noreferrer">
+              WhatsApp
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="page-layout__hero" id="hero" aria-label="Apresentação do restaurante">
+      <div class="hero">
+        <div class="container">
+          <div class="hero__content">
+            <span class="hero__badge">Bem-vindo ao</span>
+            <h1 class="hero__title">Restaurante Bella Vista</h1>
+            <p class="hero__subtitle">
+              Sabores autênticos da culinária italiana com o toque caloroso do nordeste brasileiro.
+              Encontre o prato perfeito para cada momento.
+            </p>
+            <a href="#cardapio" class="hero__cta">Ver Cardápio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CATEGORY FILTER ═══ -->
+    <section class="page-layout__filter" id="cardapio" aria-label="Filtro de categorias">
+      <div class="container">
+        <div class="category-filter" role="group" aria-label="Filtrar por categoria">
+          <button class="category-filter__btn category-filter__btn--active" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="category-filter__btn" data-filter="entradas" aria-pressed="false">Entradas</button>
+          <button class="category-filter__btn" data-filter="pratos" aria-pressed="false">Pratos Principais</button>
+          <button class="category-filter__btn" data-filter="bebidas" aria-pressed="false">Bebidas</button>
+          <button class="category-filter__btn" data-filter="sobremesas" aria-pressed="false">Sobremesas</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ MENU GRID ═══ -->
+    <main class="page-layout__main" aria-label="Itens do cardápio">
+      <div class="container">
+
+        <!-- ── Entradas ── -->
+        <section class="menu-section" data-category="entradas">
+          <h2 class="menu-section__title" id="entradas">Entradas</h2>
+          <div class="menu-grid" aria-labelledby="entradas">
+
+            <article class="item-card item-card--highlight" data-category="entradas">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/bruschetta/600/338"
+                alt="Bruschetta italiana com tomate fresco, manjericão e azeite extra virgem"
+              >
+              <div class="item-card__body">
+                <span class="item-card__badge">Destaque</span>
+                <h3 class="item-card__name">Bruschetta Italiana</h3>
+                <p class="item-card__description">
+                  Fatias de pão ciabatta tostadas com tomate fresco, manjericão, alho e azeite extra virgem.
+                </p>
+                <span class="item-card__price">R$ 28,90</span>
+              </div>
+            </article>
+
+            <article class="item-card" data-category="entradas">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/carpaccio/600/338"
+                alt="Carpaccio de filé mignon com alcaparras e parmesão"
+              >
+              <div class="item-card__body">
+                <h3 class="item-card__name">Carpaccio di Manzo</h3>
+                <p class="item-card__description">
+                  Finas fatias de filé mignon cru, alcaparras, rúcula e lascas de parmesão com molho mostarda.
+                </p>
+                <span class="item-card__price">R$ 45,00</span>
+              </div>
+            </article>
+
+            <article class="item-card" data-category="entradas">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/caldofeijao/600/338"
+                alt="Caldo de feijão cremoso com bacon e linguiça"
+              >
+              <div class="item-card__body">
+                <h3 class="item-card__name">Caldo de Feijão</h3>
+                <p class="item-card__description">
+                  Feijão carioca cremoso com bacon, linguiça, couve e torresmo, acompanhado de farinha.
+                </p>
+                <span class="item-card__price">R$ 22,00</span>
+              </div>
+            </article>
+
+            <article class="item-card" data-category="entradas">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/saladacaesar/600/338"
+                alt="Salada Caesar com alface romana, croutons e molho clássico"
+              >
+              <div class="item-card__body">
+                <h3 class="item-card__name">Salada Caesar</h3>
+                <p class="item-card__description">
+                  Alface romana crocante, croutons artesanais, parmesão ralado e molho Caesar clássico.
+                </p>
+                <span class="item-card__price">R$ 32,00</span>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- ── Pratos Principais ── -->
+        <section class="menu-section" data-category="pratos">
+          <h2 class="menu-section__title" id="pratos">Pratos Principais</h2>
+          <div class="menu-grid" aria-labelledby="pratos">
+
+            <article class="item-card item-card--highlight" data-category="pratos">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/risotofunghi/600/338"
+                alt="Risoto de funghi porcini com ervas frescas e parmesão"
+              >
+              <div class="item-card__body">
+                <span class="item-card__badge">Chef recomenda</span>
+                <h3 class="item-card__name">Risoto de Funghi</h3>
+                <p class="item-card__description">
+                  Arroz arbóreo cremoso com funghi porcini, manteiga, ervas frescas e parmesão envelhecido.
+                </p>
+                <span class="item-card__price">R$ 68,00</span>
+              </div>
+            </article>
+
+            <article class="item-card" data-category="pratos">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/filemignao/600/338"
+                alt="Filé ao molho madeira com batatas rústicas"
+              >
+              <div class="item-card__body">
+                <h3 class="item-card__name">Filé ao Molho Madeira</h3>
+                <p class="item-card__description">
+                  Medalhão de filé mignon grelhado ao ponto com molho madeira reduzido e batatas rústicas.
+                </p>
+                <span class="item-card__price">R$ 85,00</span>
+              </div>
+            </article>
+
+            <article class="item-card" data-category="pratos">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/frangogrelhado/600/338"
+                alt="Frango grelhado com legumes salteados e arroz integral"
+              >
+              <div class="item-card__body">
+                <h3 class="item-card__name">Frango Grelhado</h3>
+                <p class="item-card__description">
+                  Peito de frango marinado em ervas finas, grelhado na brasa com legumes salteados e arroz integral.
+                </p>
+                <span class="item-card__price">R$ 52,00</span>
+              </div>
+            </article>
+
+            <article class="item-card" data-category="pratos">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/salmaocrosta/600/338"
+                alt="Salmão em crosta de ervas com purê de mandioquinha"
+              >
+              <div class="item-card__body">
+                <h3 class="item-card__name">Salmão na Crosta</h3>
+                <p class="item-card__description">
+                  Filé de salmão fresco em crosta de ervas finas com purê de mandioquinha e molho de limão-siciliano.
+                </p>
+                <span class="item-card__price">R$ 78,00</span>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- ── Bebidas ── -->
+        <section class="menu-section" data-category="bebidas">
+          <h2 class="menu-section__title" id="bebidas">Bebidas</h2>
+          <div class="menu-grid" aria-labelledby="bebidas">
+
+            <article class="item-card" data-category="bebidas">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/suconatural/600/338"
+                alt="Suco natural de frutas tropicais em copo gelado"
+              >
+              <div class="item-card__body">
+                <h3 class="item-card__name">Suco Natural</h3>
+                <p class="item-card__description">
+                  Sucos naturais das frutas da estação: manga, maracujá, caju ou goiaba. 500 ml.
+                </p>
+                <span class="item-card__price">R$ 14,00</span>
+              </div>
+            </article>
+
+            <article class="item-card" data-category="bebidas">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/aguacomgas/600/338"
+                alt="Água com gás em garrafa de vidro"
+              >
+              <div class="item-card__body">
+                <h3 class="item-card__name">Água com Gás</h3>
+                <p class="item-card__description">
+                  Água mineral com gás importada, garrafa de vidro 500 ml, servida gelada.
+                </p>
+                <span class="item-card__price">R$ 9,00</span>
+              </div>
+            </article>
+
+            <article class="item-card item-card--highlight" data-category="bebidas">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/caipirinha/600/338"
+                alt="Caipirinha de limão-taiti artesanal com cachaça premium"
+              >
+              <div class="item-card__body">
+                <span class="item-card__badge">Favorita</span>
+                <h3 class="item-card__name">Caipirinha Artesanal</h3>
+                <p class="item-card__description">
+                  Cachaça premium envelhecida, limão-taiti, açúcar de cana e muito gelo. Clássico brasileiro.
+                </p>
+                <span class="item-card__price">R$ 26,00</span>
+              </div>
+            </article>
+
+            <article class="item-card" data-category="bebidas">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/vinhocasa/600/338"
+                alt="Taça de vinho tinto da casa servida à temperatura ideal"
+              >
+              <div class="item-card__body">
+                <h3 class="item-card__name">Vinho da Casa</h3>
+                <p class="item-card__description">
+                  Seleção mensal do sommelier — tinto ou branco. Garrafa 750 ml. Pergunte ao garçom a safra atual.
+                </p>
+                <span class="item-card__price">R$ 110,00</span>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- ── Sobremesas ── -->
+        <section class="menu-section" data-category="sobremesas">
+          <h2 class="menu-section__title" id="sobremesas">Sobremesas</h2>
+          <div class="menu-grid" aria-labelledby="sobremesas">
+
+            <article class="item-card item-card--highlight" data-category="sobremesas">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/tiramisu/600/338"
+                alt="Tiramisu italiano com camadas de mascarpone e biscoito champagne"
+              >
+              <div class="item-card__body">
+                <span class="item-card__badge">Mais pedido</span>
+                <h3 class="item-card__name">Tiramisu</h3>
+                <p class="item-card__description">
+                  Receita original italiana com mascarpone, biscoito champagne, café espresso e cacau em pó.
+                </p>
+                <span class="item-card__price">R$ 34,00</span>
+              </div>
+            </article>
+
+            <article class="item-card" data-category="sobremesas">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/pudimleite/600/338"
+                alt="Pudim de leite condensado com calda de caramelo"
+              >
+              <div class="item-card__body">
+                <h3 class="item-card__name">Pudim de Leite</h3>
+                <p class="item-card__description">
+                  Pudim caseiro de leite condensado com calda de caramelo dourado. Receita da vovó.
+                </p>
+                <span class="item-card__price">R$ 22,00</span>
+              </div>
+            </article>
+
+            <article class="item-card" data-category="sobremesas">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/moussechocolate/600/338"
+                alt="Mousse de chocolate belga com raspas de laranja"
+              >
+              <div class="item-card__body">
+                <h3 class="item-card__name">Mousse de Chocolate</h3>
+                <p class="item-card__description">
+                  Mousse aerada com chocolate belga 70%, raspas de laranja e chantilly artesanal.
+                </p>
+                <span class="item-card__price">R$ 28,00</span>
+              </div>
+            </article>
+
+            <article class="item-card" data-category="sobremesas">
+              <img
+                class="item-card__image"
+                src="https://picsum.photos/seed/pannacotta/600/338"
+                alt="Panna cotta italiana com calda de frutas vermelhas"
+              >
+              <div class="item-card__body">
+                <h3 class="item-card__name">Panna Cotta</h3>
+                <p class="item-card__description">
+                  Creme italiano de baunilha com calda de frutas vermelhas frescas. Leve e sofisticado.
+                </p>
+                <span class="item-card__price">R$ 30,00</span>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+      </div><!-- /container -->
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="page-layout__footer footer" id="contato" aria-label="Informações do restaurante">
+      <div class="container">
+        <div class="footer__grid">
+
+          <div class="footer__col" id="sobre">
+            <h3 class="footer__title">Bella Vista</h3>
+            <p class="footer__text">
+              Restaurante italiano no coração de João Pessoa. Sabores autênticos,
+              ambiente acolhedor e atendimento de excelência desde 2012.
+            </p>
+          </div>
+
+          <div class="footer__col">
+            <h3 class="footer__title">Horários</h3>
+            <p class="footer__text">Seg–Sex: 11h30 às 15h / 18h às 23h</p>
+            <p class="footer__text">Sáb–Dom: 11h30 às 00h</p>
+            <p class="footer__text">Feriados: consulte-nos</p>
+          </div>
+
+          <div class="footer__col">
+            <h3 class="footer__title">Endereço</h3>
+            <address class="footer__text" style="font-style: normal;">
+              Av. Epitácio Pessoa, 1500<br>
+              Tambaú — João Pessoa, PB<br>
+              CEP 58039-000
+            </address>
+          </div>
+
+          <div class="footer__col">
+            <h3 class="footer__title">Redes Sociais</h3>
+            <ul class="footer__social" role="list">
+              <li>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                   aria-label="Instagram do Bella Vista">Instagram</a>
+              </li>
+              <li>
+                <a href="https://wa.me/5583999990000" target="_blank" rel="noopener noreferrer"
+                   aria-label="WhatsApp para reservas">WhatsApp</a>
+              </li>
+              <li>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                   aria-label="Facebook do Bella Vista">Facebook</a>
+              </li>
+            </ul>
+          </div>
+
+        </div><!-- /footer__grid -->
+
+        <div class="footer__bottom">
+          <span>&copy; 2026 Restaurante Bella Vista — Todos os direitos reservados</span>
+          <span>Desenvolvido para UNIPÊ | Aulas 7 + 8 | Prof. Jeofton Costa</span>
+        </div>
+
+      </div><!-- /container -->
+    </footer>
+
+  </div><!-- /page-layout -->
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
