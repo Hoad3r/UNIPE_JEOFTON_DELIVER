@@ -1,0 +1,113 @@
+/* ═══════════════════════════════════════════════
+   variables.css — Design Tokens do Cardápio Digital
+   Aulas 7 + 8 | Prof. Jeofton Costa
+   ═══════════════════════════════════════════════ */
+:root {
+
+  /* ── TIPOGRAFIA ── */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  /* Escala Modular — Major Third (×1.250) */
+  --font-xs:   0.640rem;   /*  ≈10px — badge, alérgenos            */
+  --font-sm:   0.800rem;   /*  ≈13px — gramagem, info secundária   */
+  --font-base: 1.000rem;   /*  =16px — descrição do prato          */
+  --font-md:   1.250rem;   /*  ≈20px — nome do prato (H3)          */
+  --font-lg:   1.563rem;   /*  ≈25px — título de categoria (H2)    */
+  --font-xl:   1.953rem;   /*  ≈31px — slogan no hero              */
+  --font-2xl:  2.441rem;   /*  ≈39px — nome do restaurante (H1)    */
+  --font-3xl:  3.052rem;   /*  ≈49px — hero widescreen             */
+
+  /* Peso */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-bold:    700;
+
+  /* Line-height */
+  --leading-tight:  1.2;
+  --leading-normal: 1.5;
+  --leading-loose:  1.8;
+
+  /* ── CORES ── */
+
+  /* Primária — Terracota */
+  --color-primary-100: #FAE8E0;
+  --color-primary-300: #F0A882;
+  --color-primary-500: #C0522A;   /* ← base — CTAs, badges, destaques */
+  --color-primary-700: #8C3519;
+  --color-primary-900: #5A1F0A;
+
+  /* Secundária — Dourado */
+  --color-secondary-100: #FDF4DC;
+  --color-secondary-300: #F5D98B;
+  --color-secondary-500: #C9971C;   /* ← preços, destaques premium */
+  --color-secondary-700: #8F6A10;
+
+  /* Neutras */
+  --color-gray-50:  #F9FAFB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-300: #D1D5DB;
+  --color-gray-500: #6B7280;
+  --color-gray-700: #374151;
+  --color-gray-900: #111827;
+
+  /* Semânticas */
+  --color-success: #166534;   /* "Disponível"          */
+  --color-warning: #92400E;   /* "Últimas unidades"    */
+  --color-danger:  #991B1B;   /* Alérgenos, picância   */
+  --color-info:    #1E40AF;   /* Info nutricional      */
+
+  /* Papéis de texto/fundo */
+  --color-text-primary:   var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-500);
+  --color-bg-primary:     #FFFFFF;
+  --color-bg-secondary:   var(--color-gray-50);
+  --color-border:         var(--color-gray-300);
+
+  /* ── ESPAÇAMENTO ── */
+  --space-xs:  0.25rem;   /*  4px */
+  --space-sm:  0.5rem;    /*  8px */
+  --space-md:  1rem;      /* 16px */
+  --space-lg:  1.5rem;    /* 24px */
+  --space-xl:  2rem;      /* 32px */
+  --space-2xl: 3rem;      /* 48px */
+
+  /* ── BREAKPOINTS (referência — usar em @media) ── */
+  /* Não é possível usar var() em @media — documente aqui como referência */
+  /* --bp-sm:  480px   smartphones grandes                                */
+  /* --bp-md:  768px   tablets e phablets                                 */
+  /* --bp-lg:  1024px  laptops                                            */
+  /* --bp-xl:  1280px  desktops — largura máxima do container             */
+
+  /* ── LAYOUT ── */
+  --container-max:     1200px;
+  --container-padding: var(--space-md);
+  --border-radius-sm:  4px;
+  --border-radius-md:  8px;
+  --border-radius-lg:  16px;
+
+  /* ── SOMBRAS ── */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* ── TRANSIÇÕES ── */
+  --transition-fast:   0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+/* ── DARK MODE — Desafio Extra ── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary:   #F9FAFB;
+    --color-text-secondary: #9CA3AF;
+    --color-bg-primary:     #111827;
+    --color-bg-secondary:   #1F2937;
+    --color-border:         #374151;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.40);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.50);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.60);
+  }
+}
