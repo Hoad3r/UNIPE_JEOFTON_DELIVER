@@ -1,0 +1,75 @@
+/* base.css — Estilos de elementos HTML sem classes */
+
+/* Headings */
+h1 {
+  font-family: var(--font-heading);
+  font-size: var(--font-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-size: var(--font-md);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+h4, h5, h6 {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+/* Parágrafos */
+p {
+  font-size: var(--font-base);
+  line-height: var(--leading-loose);
+  color: var(--color-text-secondary);
+}
+
+/* Links */
+a {
+  color: var(--color-primary-500);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+}
+
+/* Listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Botões base */
+button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+/* Separador */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-xl) 0;
+}
+
+/* Ênfase */
+strong { font-weight: var(--weight-bold); }
+em     { font-style: italic; }
