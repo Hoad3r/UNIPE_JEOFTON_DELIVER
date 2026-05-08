@@ -1,0 +1,69 @@
+/* btn.css — Button Component — Aula 09 */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--font-sm);
+  font-weight: var(--weight-medium);
+  line-height: 1.2;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+  white-space: normal;
+  text-align: center;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: var(--space-sm) var(--space-xl);
+    font-size: var(--font-base);
+    line-height: 1;
+    white-space: nowrap;
+  }
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-primary-500);
+  outline-offset: 3px;
+}
+
+.btn--primary {
+  background-color: var(--color-primary-500);
+  border-color: var(--color-primary-500);
+  color: #ffffff;
+}
+
+.btn--primary:hover {
+  background-color: var(--color-primary-700);
+  border-color: var(--color-primary-700);
+}
+
+.btn--outline {
+  background-color: transparent;
+  border-color: var(--color-primary-500);
+  color: var(--color-primary-500);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-primary-100);
+}
+
+.btn--ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-primary-500);
+}
+
+.btn--ghost:hover {
+  background-color: var(--color-primary-100);
+}

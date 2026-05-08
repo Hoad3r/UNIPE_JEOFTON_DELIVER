@@ -1,21 +1,30 @@
-/* footer.css — Flexbox: colunas de info */
+/* footer.css — CSS Grid: colunas de info — Aula 09 */
 
 .footer {
   background-color: var(--color-primary-900);
   color: var(--color-primary-100);
-  padding: var(--space-2xl) 0 var(--space-lg);
+  padding: var(--space-xl) 0 var(--space-md);
   margin-top: var(--space-2xl);
 }
 
 .footer__grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xl);
-  margin-bottom: var(--space-xl);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: var(--space-2xl) 0 var(--space-lg);
+  }
+  .footer__grid {
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+  }
 }
 
 .footer__col {
-  flex: 1 1 200px;
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
@@ -47,7 +56,6 @@
   text-decoration: none;
 }
 
-/* Linha de direitos autorais */
 .footer__bottom {
   display: flex;
   justify-content: space-between;
@@ -60,7 +68,6 @@
   color: var(--color-primary-500);
 }
 
-/* Ícones de redes sociais */
 .footer__social {
   display: flex;
   gap: var(--space-md);
@@ -78,8 +85,14 @@
   color: var(--color-secondary-300);
 }
 
-/* Mobile: colunas empilhadas */
-@media (max-width: 479px) {
-  .footer__col { flex: 1 1 100%; }
-  .footer__bottom { flex-direction: column; text-align: center; }
+@media (max-width: 767px) {
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+    padding-top: var(--space-md);
+    gap: var(--space-xs);
+  }
+  .footer__title { font-size: var(--font-base); }
+  .footer__text  { font-size: var(--font-xs); line-height: var(--leading-normal); }
+  .footer__social { gap: var(--space-sm); flex-wrap: wrap; }
 }

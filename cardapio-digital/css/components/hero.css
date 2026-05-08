@@ -4,9 +4,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  min-height: 60vh;
-  padding: var(--space-2xl) 0;
+  align-items: stretch;
+  width: 100%;
+  min-height: 40vh;
+  padding: var(--space-lg) 0;
   background-color: var(--color-primary-900);
   background-image: linear-gradient(
     135deg,
@@ -18,7 +19,13 @@
   overflow: hidden;
 }
 
-/* Overlay decorativo */
+@media (min-width: 768px) {
+  .hero {
+    min-height: 60vh;
+    padding: var(--space-2xl) 0;
+  }
+}
+
 .hero::before {
   content: '';
   position: absolute;
@@ -31,49 +38,39 @@
   position: relative;
   z-index: 1;
   max-width: 640px;
+  width: 100%;
+  min-width: 0;
 }
 
-/* Tipografia fluida — clamp() para nota máxima */
 .hero__title {
   font-family: var(--font-heading);
-  font-size: clamp(var(--font-xl), 5vw, var(--font-3xl));
+  font-size: clamp(var(--font-lg), 5vw, var(--font-3xl));
   font-weight: var(--weight-bold);
   line-height: var(--leading-tight);
   color: var(--color-bg-primary);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .hero__subtitle {
-  font-size: clamp(var(--font-base), 2.5vw, var(--font-lg));
+  font-size: clamp(var(--font-sm), 2.5vw, var(--font-lg));
   line-height: var(--leading-loose);
   color: var(--color-primary-100);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-md);
+  overflow-wrap: break-word;
 }
 
 .hero__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-md) var(--space-xl);
-  background-color: var(--color-secondary-500);
-  color: var(--color-gray-900);
-  font-family: var(--font-body);
-  font-size: var(--font-base);
-  font-weight: var(--weight-bold);
-  border-radius: var(--border-radius-md);
-  text-decoration: none;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  margin-top: var(--space-sm);
   box-shadow: var(--shadow-md);
 }
 
 .hero__cta:hover {
-  background-color: var(--color-secondary-300);
   transform: translateY(-2px);
   text-decoration: none;
-  color: var(--color-gray-900);
 }
 
-/* Badge de destaque no hero */
 .hero__badge {
   display: inline-block;
   font-size: var(--font-xs);

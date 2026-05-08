@@ -1,7 +1,7 @@
 # Cardápio Digital — Bella Vista
 
 **Disciplina:** Engenharia de Interface HTML5/CSS3  
-**Professor:** Jeofton Costa | **UNIPÊ** | 29/04/2026
+**Professor:** Jeofton Costa | **UNIPÊ** | 2026
 
 ---
 
@@ -31,29 +31,33 @@ Abra `cardapio-digital/index.html` no navegador — ou use a extensão **Live Se
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│  <header> <nav>                                          │
+│  <header> .header (sticky)                               │
 │  Logo Bella Vista          [ Links ] [ hamburguer mobile]│
 ├──────────────────────────────────────────────────────────┤
 │  <section> .hero                                         │
 │  <h1> Restaurante Bella Vista  ← único H1 na página      │
 │  <p>  Slogan — tipografia fluida via clamp()             │
-│  [ CTA: Ver Cardápio ]                                   │
+│  [ CTA: Ver Cardápio ]  ← .btn--primary                  │
+├──────────────────────────────────────────────────────────┤
+│  <section> .cards-grid  (Destaques — Aula 09)            │
+│  ┌──────────────────────────┐  ┌──────────┐             │
+│  │ card--featured (2 cols)  │  │  .card   │             │
+│  │ Risoto de Funghi Porcini │  │  Filé    │             │
+│  └──────────────────────────┘  └──────────┘             │
 ├──────────────────────────────────────────────────────────┤
 │  .category-filter  (Flexbox + overflow-x: auto)          │
 │  [ Todos★ ] [ Entradas ] [ Pratos ] [ Bebidas ] [ Sbrm ] │
-│  ↑ scroll horizontal no mobile, flex-shrink:0 nos botões │
 ├──────────────────────────────────────────────────────────┤
-│  <main> .menu-grid  (Grid auto-fit/minmax)               │
-│  <h2> Entradas                                           │
+│  <main> .menu-grid  (CSS Grid minmax)                    │
 │  ┌──────────┐  ┌──────────┐  ┌──────────┐              │
 │  │ [foto]   │  │ [foto]   │  │ [foto]   │              │
 │  │ <h3>Nome │  │ <h3>Nome │  │ <h3>Nome │              │
 │  │ Desc.    │  │ Desc.    │  │ Desc.    │              │
 │  │ R$ 00,00 │  │ R$ 00,00 │  │ R$ 00,00 │              │
 │  └──────────┘  └──────────┘  └──────────┘              │
-│  mobile: 1 col → tablet 768px: 2 col → desktop: 3–4 col  │
+│  mobile: 2 col → tablet 768px: 2 col → desktop: 3–4 col  │
 ├──────────────────────────────────────────────────────────┤
-│  <footer> .footer  (Flexbox + flex-wrap)                 │
+│  <footer> .footer  (CSS Grid auto-fit/minmax)            │
 │  Sobre | Horários | Endereço | Redes Sociais | © 2026    │
 └──────────────────────────────────────────────────────────┘
 ```
@@ -83,7 +87,7 @@ Abra `cardapio-digital/index.html` no navegador — ou use a extensão **Live Se
 | `--font-heading` | Playfair Display, Georgia, serif | H1, H2, H3 |
 | `--font-body` | Inter, system-ui, sans-serif | parágrafos e UI |
 | Escala | Major Third ×1.250 | `--font-xs` até `--font-3xl` |
-| Fluida (hero) | `clamp(var(--font-xl), 5vw, var(--font-3xl))` | H1 sem media query |
+| Fluida (hero) | `clamp(var(--font-lg), 5vw, var(--font-3xl))` | H1 sem media query |
 
 ---
 
@@ -93,65 +97,55 @@ Abra `cardapio-digital/index.html` no navegador — ou use a extensão **Live Se
 cardapio-digital/
 ├── index.html
 ├── css/
-│   ├── variables.css       ← tokens: cores, tipo, espaço, breakpoints, dark mode
-│   ├── reset.css           ← Modern CSS Reset (Andy Bell 2024)
-│   ├── base.css            ← h1–h6, p, a, ul sem classes
-│   ├── layout.css          ← CSS Grid macro + 4 breakpoints mobile-first
+│   ├── variables.css            ← tokens: cores, tipo, espaço, breakpoints, dark mode
+│   ├── reset.css                ← Modern CSS Reset (Andy Bell 2024)
+│   ├── base.css                 ← h1–h6, p, a, ul sem classes
+│   ├── layout.css               ← CSS Grid macro + breakpoints mobile-first
 │   ├── components/
-│   │   ├── nav.css         ← Flexbox: logo + links + hamburguer
-│   │   ├── hero.css        ← Flexbox + clamp() tipografia fluida
-│   │   ├── category-filter.css  ← Flexbox + scroll horizontal
-│   │   ├── item-card.css   ← Flexbox column + BEM + animação pop-forward
-│   │   └── footer.css      ← Flexbox + flex-wrap colunas
-│   └── utilities.css       ← helpers (importado por último — ITCSS)
+│   │   ├── navbar.css           ← BEM Navbar: sticky, hamburger, scroll behavior
+│   │   ├── hero.css             ← Flexbox + clamp() tipografia fluida
+│   │   ├── card.css             ← BEM Card: variantes featured, hover, imagens
+│   │   ├── btn.css              ← Botões: --primary, --outline, --ghost, :focus-visible
+│   │   ├── category-filter.css  ← Flexbox + scroll horizontal no mobile
+│   │   ├── item-card.css        ← BEM item-card + animação pop-forward
+│   │   └── footer.css           ← CSS Grid auto-fit/minmax
+│   └── utilities.css            ← helpers (importado por último — ITCSS)
 └── js/
-    └── main.js             ← filtro data-category + hamburguer + smooth scroll
+    └── main.js                  ← filtro categorias, hamburguer, scroll, copyright
 ```
 
 ---
 
 ## Checklist de Entregáveis
 
-### Passo 1 — Documento de Definição do Problema
+### Aula 08 — Base do Projeto
+
 - [x] Contexto descrito (domínio, problema real)
 - [x] Público-alvo definido (idade, dispositivo, contexto de uso)
-- [x] Dor principal identificada
-- [x] Critério de sucesso mensurável ("O usuário consegue...")
-
-### Passo 2 — Wireframe
-- [x] Wireframe ASCII documentado neste README
-- [x] Header, hero, filtro, grid de conteúdo e footer identificados
-- [x] Elementos HTML indicados por seção
-- [x] Comportamento mobile documentado (colapso de nav, scroll de abas, 1 coluna)
-- [x] Hierarquia H1 → H2 → H3 validada
-
-### Passo 3 — Arquitetura de Arquivos
-- [x] Estrutura de pastas criada (css/, css/components/, js/)
-- [x] Todos os arquivos criados conforme especificação
-- [x] CSS importado no `index.html` na ordem ITCSS correta (utilities por último)
-- [x] Viewport meta tag presente
-- [x] Google Fonts importado antes dos CSS links
-
-### Passo 4 — Paleta de Cores
-- [x] Cor primária com contraste ≥ 4.5:1 (WCAG AA) verificada
-- [x] ≥ 5 cores definidas como Custom Properties
-- [x] Paleta documentada neste README (nome, hex, contraste)
-
-### Passo 5 — Tipografia e Reset
-- [x] `variables.css` com escala tipográfica completa (Major Third)
-- [x] Google Fonts configurado (Playfair Display + Inter)
-- [x] `reset.css` com Modern CSS Reset aplicado
-- [x] `prefers-reduced-motion` incluído no reset
-
-### Passo 6 — HTML Semântico
-- [x] `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`
-- [x] Hierarquia única de H1 → H2 (categorias) → H3 (pratos)
+- [x] Wireframe ASCII documentado
+- [x] Estrutura ITCSS: settings → generic → base → layout → components → utilities
+- [x] `variables.css` com escala tipográfica Major Third e paleta completa
+- [x] `reset.css` Modern CSS Reset com `prefers-reduced-motion`
+- [x] HTML semântico: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`
+- [x] Hierarquia única H1 → H2 (categorias) → H3 (pratos)
 - [x] `alt` descritivo em todas as imagens
 - [x] `aria-label` e `aria-pressed` nos controles de filtro
-- [x] Abre sem erros no console via Live Server
+- [x] CSS Grid macro com `grid-template-areas`
+- [x] Filtro por categoria via JavaScript
+- [x] Dark mode via `prefers-color-scheme: dark`
 
-### Desafio Extra
-- [x] Dark mode via `prefers-color-scheme: dark` em `variables.css`
+### Aula 09 — Componentes BEM + Responsividade
+
+- [x] Navbar BEM com hamburger mobile e comportamento `.header--scrolled` ao rolar
+- [x] Tecla Escape fecha o menu hamburger (`keydown` listener)
+- [x] Seção de destaques com `.cards-grid` responsivo (2 cols mobile → 3 cols desktop)
+- [x] Componente `.card` com variante `.card--featured` (borda primária, destaque visual)
+- [x] Sistema de botões `.btn` com variantes `--primary`, `--outline`, `--ghost`
+- [x] `:focus-visible` acessível em todos os botões e links interativos
+- [x] Footer migrado para CSS Grid com `auto-fit/minmax`
+- [x] Copyright com ano automático via JavaScript
+- [x] `minmax(0, 1fr)` em todos os grids para prevenir overflow horizontal no mobile
+- [x] Smooth scroll para âncoras internas
 
 ---
 
@@ -159,14 +153,17 @@ cardapio-digital/
 
 | Conceito | Onde | Técnica |
 |---|---|---|
-| CSS Grid macro | `layout.css` | `grid-template-areas` + `auto-fit/minmax` |
-| Flexbox | todos os componentes | `justify-content`, `flex-direction`, `flex-wrap` |
+| CSS Grid macro | `layout.css` | `grid-template-areas` + `minmax(0, 1fr)` |
+| CSS Grid componentes | `footer.css` | `auto-fit/minmax` |
+| Flexbox | navbar, hero, cards, filter | `justify-content`, `flex-direction`, `gap` |
 | Custom Properties | `variables.css` | tokens de design + dark mode |
-| Tipografia fluida | `hero.css` | `clamp(var(--font-xl), 5vw, var(--font-3xl))` |
-| Mobile-first | `layout.css` | `min-width` em todos os breakpoints |
-| BEM | `item-card.css` | `.item-card__body`, `--highlight`, `--unavailable` |
+| Tipografia fluida | `hero.css` | `clamp(var(--font-lg), 5vw, var(--font-3xl))` |
+| Mobile-first | `layout.css`, todos components | `min-width` em todos os breakpoints |
+| BEM | `navbar.css`, `card.css`, `item-card.css`, `btn.css` | `.block__element--modifier` |
 | Animação | `item-card.css` + `main.js` | `@keyframes cardEnter` + stagger via CSS var |
+| Acessibilidade | `btn.css`, `navbar.css` | `:focus-visible`, `aria-expanded`, `aria-pressed` |
+| Overflow containment | `reset.css`, `layout.css` | `overflow-x: clip`, `minmax(0, 1fr)` |
 
 ---
 
-*Engenharia de Interface HTML5/CSS3 | Prof. Jeofton Costa | UNIPÊ | 29/04/2026*
+*Engenharia de Interface HTML5/CSS3 | Prof. Jeofton Costa | UNIPÊ | 2026*

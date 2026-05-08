@@ -1,0 +1,145 @@
+/* card.css — BEM Card Component — Aula 09 */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-primary);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+  min-width: 0;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.card--featured {
+  border: 2px solid var(--color-primary-500);
+}
+
+.card__image {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  display: block;
+}
+
+.card--featured .card__image {
+  height: 100px;
+}
+
+.card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  min-width: 0;
+}
+
+.card__badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 2px var(--space-xs);
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-700);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-base);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.card__description {
+  font-size: var(--font-xs);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+  flex: 1;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm) var(--space-sm);
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.card__price {
+  font-size: var(--font-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-secondary-500);
+  white-space: nowrap;
+}
+
+@media (min-width: 480px) {
+  .card__image { height: 100px; }
+  .card--featured .card__image { height: 120px; }
+  .card__body {
+    padding: var(--space-sm);
+    gap: var(--space-xs);
+  }
+  .card__footer {
+    padding: var(--space-xs) var(--space-sm) var(--space-sm);
+  }
+}
+
+@media (min-width: 768px) {
+  .card__image {
+    height: 180px;
+  }
+  .card--featured .card__image {
+    height: 220px;
+  }
+  .card__body {
+    padding: var(--space-md);
+    gap: var(--space-sm);
+  }
+  .card__title {
+    font-size: var(--font-md);
+  }
+  .card__description {
+    font-size: var(--font-sm);
+    -webkit-line-clamp: unset;
+    display: block;
+    overflow: visible;
+  }
+  .card__footer {
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+    gap: var(--space-sm);
+  }
+  .card__price {
+    font-size: var(--font-md);
+  }
+}
+
+@media (min-width: 1200px) {
+  .card__image {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+  .card--featured .card__image {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}

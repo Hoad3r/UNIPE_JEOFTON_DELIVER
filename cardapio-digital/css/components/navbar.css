@@ -1,0 +1,182 @@
+/* navbar.css — BEM Navbar Component — Aula 09 */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-bg-primary);
+  box-shadow: var(--shadow-sm);
+  overflow: visible;
+  transition: box-shadow var(--transition-normal);
+  width: 100%;
+}
+
+.header--scrolled {
+  box-shadow: var(--shadow-lg);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-xs) var(--space-sm);
+  width: 100%;
+  position: relative;
+}
+
+.navbar__logo {
+  font-family: var(--font-heading);
+  font-size: var(--font-md);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary-500);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.navbar__logo:hover {
+  color: var(--color-primary-700);
+}
+
+.navbar__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: 2px solid var(--color-primary-500);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.navbar__toggle:hover {
+  background-color: var(--color-primary-100);
+}
+
+.navbar__toggle:focus-visible {
+  outline: 3px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+.navbar__toggle span {
+  display: block;
+  width: 20px;
+  height: 2.5px;
+  background-color: var(--color-primary-500);
+  border-radius: 2px;
+  transition: transform var(--transition-normal), opacity var(--transition-fast);
+}
+
+.navbar__toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.navbar__toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.navbar__menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: var(--color-bg-primary);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-sm);
+  list-style: none;
+  gap: 0;
+  margin: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.navbar__menu--open {
+  display: flex;
+}
+
+.navbar__menu li {
+  width: 100%;
+}
+
+.navbar__menu a {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border-radius: var(--border-radius-sm);
+  font-weight: var(--weight-medium);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.navbar__menu a:hover {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-500);
+  text-decoration: none;
+}
+
+@media (min-width: 480px) {
+  .navbar {
+    padding: var(--space-sm) var(--container-padding);
+    gap: var(--space-md);
+  }
+  .navbar__logo {
+    font-size: var(--font-lg);
+  }
+  .navbar__toggle {
+    width: 44px;
+    height: 44px;
+    gap: 5px;
+  }
+  .navbar__toggle span {
+    width: 22px;
+    height: 3px;
+  }
+  .navbar__toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .navbar__toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    padding: var(--space-md) var(--container-padding);
+  }
+
+  .navbar__toggle {
+    display: none;
+  }
+
+  .navbar__menu {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    border-top: none;
+    gap: var(--space-xs);
+    align-items: center;
+    width: auto;
+  }
+
+  .navbar__menu li {
+    width: auto;
+  }
+}

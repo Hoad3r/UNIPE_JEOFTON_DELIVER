@@ -5,7 +5,6 @@
   gap: var(--space-sm);
   overflow-x: auto;
   padding: var(--space-md) 0;
-  /* esconde barra de rolagem mas mantém scroll */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -13,7 +12,7 @@
 .category-filter::-webkit-scrollbar { display: none; }
 
 .category-filter__btn {
-  flex-shrink: 0;    /* impede o botão de encolher */
+  flex-shrink: 0;
   padding: var(--space-sm) var(--space-md);
   border: 2px solid var(--color-primary-500);
   border-radius: var(--border-radius-md);

@@ -9,36 +9,40 @@
   <!-- Google Fonts — antes dos CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&family=Poppins:wght@700&display=swap" rel="stylesheet">
 
-  <!-- ITCSS order: settings → base → layout → components → utilities -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components/nav.css">
-  <link rel="stylesheet" href="css/components/hero.css">
-  <link rel="stylesheet" href="css/components/category-filter.css">
-  <link rel="stylesheet" href="css/components/item-card.css">
-  <link rel="stylesheet" href="css/components/footer.css">
-  <link rel="stylesheet" href="css/utilities.css">
+  <!-- ITCSS order: settings → generic → base → layout → components → utilities -->
+  <link rel="stylesheet" href="css/variables.css?v=10">
+  <link rel="stylesheet" href="css/reset.css?v=10">
+  <link rel="stylesheet" href="css/base.css?v=10">
+  <link rel="stylesheet" href="css/layout.css?v=10">
+  <link rel="stylesheet" href="css/components/hero.css?v=10">
+  <link rel="stylesheet" href="css/components/category-filter.css?v=10">
+  <link rel="stylesheet" href="css/components/item-card.css?v=10">
+  <link rel="stylesheet" href="css/components/footer.css?v=10">
+  <!-- Aula 09 — novos componentes -->
+  <link rel="stylesheet" href="css/components/navbar.css?v=10">
+  <link rel="stylesheet" href="css/components/card.css?v=10">
+  <link rel="stylesheet" href="css/components/btn.css?v=10">
+  <link rel="stylesheet" href="css/utilities.css?v=10">
 </head>
 <body>
 
   <div class="page-layout">
 
     <!-- ═══ HEADER / NAV ═══ -->
-    <header class="page-layout__header">
-      <nav class="nav" aria-label="Navegação principal">
-        <a href="#hero" class="nav__logo">Bella Vista</a>
+    <header class="header page-layout__header">
+      <nav class="navbar" aria-label="Navegação principal">
+        <a href="#hero" class="navbar__logo">Bella Vista</a>
 
-        <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+        <button class="navbar__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <ul class="nav__links" id="nav-links" role="list">
+        <ul class="navbar__menu" id="nav-links" role="list">
+          <li><a href="#destaques">Destaques</a></li>
           <li><a href="#cardapio">Cardápio</a></li>
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#contato">Contato</a></li>
@@ -62,8 +66,94 @@
               Sabores autênticos da culinária italiana com o toque caloroso do nordeste brasileiro.
               Encontre o prato perfeito para cada momento.
             </p>
-            <a href="#cardapio" class="hero__cta">Ver Cardápio</a>
+            <a href="#cardapio" class="hero__cta btn btn--primary">Ver Cardápio</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ DESTAQUES — Cards Grid (Aula 09) ═══ -->
+    <section class="section page-layout__destaques" id="destaques" aria-label="Destaques do Cardápio">
+      <div class="container">
+        <h2 class="section__title">Destaques do Cardápio</h2>
+        <div class="cards-grid">
+
+          <article class="card card--featured">
+            <img
+              class="card__image"
+              src="https://picsum.photos/seed/risotofunghi/800/450"
+              alt="Risoto de funghi porcini com ervas frescas e parmesão"
+            >
+            <div class="card__body">
+              <span class="card__badge">Chef Recomenda</span>
+              <h3 class="card__title">Risoto de Funghi Porcini</h3>
+              <p class="card__description">
+                Arroz arbóreo cremoso com funghi porcini importado, finalizado com parmesão envelhecido e um toque de trufa negra.
+              </p>
+            </div>
+            <div class="card__footer">
+              <span class="card__price">R$ 68,00</span>
+              <a href="#pratos" class="btn btn--outline">Ver no Cardápio</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              class="card__image"
+              src="https://picsum.photos/seed/filemignao/800/450"
+              alt="Filé ao molho madeira com batatas rústicas"
+            >
+            <div class="card__body">
+              <span class="card__badge">Novo</span>
+              <h3 class="card__title">Filé ao Molho Madeira</h3>
+              <p class="card__description">
+                Medalhão de filé mignon grelhado ao ponto com molho madeira reduzido e batatas rústicas temperadas.
+              </p>
+            </div>
+            <div class="card__footer">
+              <span class="card__price">R$ 85,00</span>
+              <a href="#pratos" class="btn btn--ghost">Ver no Cardápio</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              class="card__image"
+              src="https://picsum.photos/seed/tiramisu/800/450"
+              alt="Tiramisu italiano com mascarpone e café espresso"
+            >
+            <div class="card__body">
+              <span class="card__badge">Mais Pedido</span>
+              <h3 class="card__title">Tiramisu</h3>
+              <p class="card__description">
+                Receita original italiana com mascarpone, biscoito champagne, café espresso e cacau em pó belga.
+              </p>
+            </div>
+            <div class="card__footer">
+              <span class="card__price">R$ 34,00</span>
+              <a href="#sobremesas" class="btn btn--ghost">Ver no Cardápio</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              class="card__image"
+              src="https://picsum.photos/seed/caipirinha/800/450"
+              alt="Caipirinha artesanal com cachaça premium"
+            >
+            <div class="card__body">
+              <span class="card__badge">Favorita</span>
+              <h3 class="card__title">Caipirinha Artesanal</h3>
+              <p class="card__description">
+                Cachaça premium envelhecida, limão-taiti fresco, açúcar de cana e muito gelo. O clássico brasileiro.
+              </p>
+            </div>
+            <div class="card__footer">
+              <span class="card__price">R$ 26,00</span>
+              <a href="#bebidas" class="btn btn--ghost">Ver no Cardápio</a>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -155,7 +245,7 @@
         </section>
 
         <!-- ── Pratos Principais ── -->
-        <section class="menu-section" data-category="pratos">
+        <section class="menu-section" id="pratos" data-category="pratos">
           <h2 class="menu-section__title" id="pratos">Pratos Principais</h2>
           <div class="menu-grid" aria-labelledby="pratos">
 
@@ -224,7 +314,7 @@
         </section>
 
         <!-- ── Bebidas ── -->
-        <section class="menu-section" data-category="bebidas">
+        <section class="menu-section" id="bebidas" data-category="bebidas">
           <h2 class="menu-section__title" id="bebidas">Bebidas</h2>
           <div class="menu-grid" aria-labelledby="bebidas">
 
@@ -293,7 +383,7 @@
         </section>
 
         <!-- ── Sobremesas ── -->
-        <section class="menu-section" data-category="sobremesas">
+        <section class="menu-section" id="sobremesas" data-category="sobremesas">
           <h2 class="menu-section__title" id="sobremesas">Sobremesas</h2>
           <div class="menu-grid" aria-labelledby="sobremesas">
 
@@ -414,8 +504,8 @@
         </div><!-- /footer__grid -->
 
         <div class="footer__bottom">
-          <span>&copy; 2026 Restaurante Bella Vista — Todos os direitos reservados</span>
-          <span>Desenvolvido para UNIPÊ | Aulas 7 + 8 | Prof. Jeofton Costa</span>
+          <span>&copy; <span class="footer__year"></span> Restaurante Bella Vista — Todos os direitos reservados</span>
+          <span>Desenvolvido para UNIPÊ | Aulas 7–9 | Prof. Jeofton Costa</span>
         </div>
 
       </div><!-- /container -->
