@@ -22,7 +22,7 @@
 @media (min-width: 768px) {
   .hero {
     min-height: 60vh;
-    padding: var(--space-2xl) 0;
+    padding: var(--space-section) 0;
   }
 }
 
@@ -73,10 +73,10 @@
 
 .hero__badge {
   display: inline-block;
-  font-size: var(--font-xs);
+  font-size: var(--font-size-label);
   font-weight: var(--weight-bold);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-wider);
   color: var(--color-secondary-300);
   margin-bottom: var(--space-sm);
 }

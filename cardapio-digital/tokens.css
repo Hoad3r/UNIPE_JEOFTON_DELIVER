@@ -1,0 +1,117 @@
+/* ═══════════════════════════════════════════════════════════════
+   tokens.css — Tokens Semânticos do Cardápio Bella Vista
+   Aula 10 | Prof. Jeofton Costa
+
+   Convenção: tokens semânticos descrevem PAPEL (o que fazem),
+   não valor (como parecem). Dependem das primitivas declaradas
+   em css/variables.css para resolução final.
+
+   Trilho B — três valores de maior impacto identificados:
+     1. Cor de ação interativa  — 50+ ocorrências no CSS
+     2. Raio de borda padrão   — 11 componentes diferentes
+     3. Espaçamento de seção   — --space-2xl, margin/padding mais recorrente
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ────────────────────────────────────────────────────────────
+     CORES
+     ──────────────────────────────────────────────────────────── */
+
+  /* Cor primária da marca — identificada em 50+ ocorrências como --color-primary-500 */
+  --color-brand: var(--color-primary-500);
+
+  /* Cor de fundo e borda de todos os elementos de ação interativa — 12 ocorrências em 4 componentes (btn, navbar, category-filter, base links) */
+  --color-action-primary: var(--color-primary-500);
+
+  /* Estado hover dos elementos de ação — 5 ocorrências em btn, navbar, base e category-filter */
+  --color-action-primary-hover: var(--color-primary-700);
+
+  /* Fundo tonal no hover de botões e menus — 5 ocorrências em btn, navbar e category-filter */
+  --color-action-primary-bg: var(--color-primary-100);
+
+  /* Texto sobre fundos de ação (botões cheios, badges ativos) — era #ffffff hardcoded em 2 lugares */
+  --color-action-text: #FFFFFF;
+
+  /* ────────────────────────────────────────────────────────────
+     BORDAS
+     ──────────────────────────────────────────────────────────── */
+
+  /* Espessura de borda em elementos interativos — valor 2px estava repetido em 5 componentes (btn, navbar, category-filter, card, item-card) */
+  --border-width-interactive: 2px;
+
+  /* Espessura de borda de destaque de seção — valor 3px em .section__title no layout */
+  --border-width-accent: 3px;
+
+  /* ────────────────────────────────────────────────────────────
+     RAIO DE BORDA E FORMA
+     ──────────────────────────────────────────────────────────── */
+
+  /* Raio de borda padrão de cards, filtros e menus — estava em 11 componentes diferentes */
+  --radius-default: var(--border-radius-md);
+
+  /* Dimensões das barras do hamburguer — hardcoded em 3 ocorrências (nav.css, navbar.css) */
+  --hamburger-height:    2px;  /* espessura de cada barra (linha visual, não espaçamento) */
+  --hamburger-height-md: 3px;  /* espessura em viewports ≥ 480px (linha visual, não espaçamento) */
+  --hamburger-gap:       4px;  /* espaço vertical entre barras — múltiplo de 4px */
+
+  /* ────────────────────────────────────────────────────────────
+     TIPOGRAFIA SEMÂNTICA
+     Mapeamento dos tamanhos mais usados para papéis de conteúdo.
+     Etapa B3: font-sizes identificados por frequência de uso.
+     ──────────────────────────────────────────────────────────── */
+
+  /* Tamanho de etiquetas e badges — --font-xs identificado em 6 ocorrências */
+  --font-size-label: var(--font-xs);
+
+  /* Tamanho de botões, gramagem e info secundária — --font-sm identificado em 15 ocorrências (maior frequência) */
+  --font-size-caption: var(--font-sm);
+
+  /* Tamanho do corpo de texto e descrições de prato — --font-base identificado em 8 ocorrências */
+  --font-size-body: var(--font-base);
+
+  /* Tamanho dos títulos de card e nome de prato (H3) — --font-md identificado em 8 ocorrências */
+  --font-size-title: var(--font-md);
+
+  /* Tamanho dos títulos de seção e categoria (H2) — --font-lg identificado em 8 ocorrências */
+  --font-size-heading: var(--font-lg);
+
+  /* Tamanho do nome do restaurante em destaque (H1) — --font-2xl identificado em 2 ocorrências */
+  --font-size-display: var(--font-2xl);
+
+  /* Letter-spacing — valores hardcoded encontrados em 4 arquivos de componente */
+  --tracking-normal: 0.02em;  /* logotipo do restaurante — nav.css */
+  --tracking-wide:   0.05em;  /* badges de categoria — card.css e item-card.css (3 ocorrências) */
+  --tracking-wider:  0.08em;  /* etiqueta de destaque do hero — hero.css */
+
+  /* ────────────────────────────────────────────────────────────
+     ESPAÇAMENTO SEMÂNTICO
+     Mapeamento dos espaços mais recorrentes para papéis de layout.
+     Etapa B3: valores identificados por frequência de uso.
+     ──────────────────────────────────────────────────────────── */
+
+  /* Gap interno de componentes — --space-xs identificado em 50+ usos */
+  --space-component-gap: var(--space-xs);
+
+  /* Padding interno de cards e listas — --space-sm identificado em 60+ usos (maior frequência) */
+  --space-component-padding: var(--space-sm);
+
+  /* Gap entre grupos de elementos — --space-md identificado em 40+ usos */
+  --space-layout-gap: var(--space-md);
+
+  /* Separação entre blocos de conteúdo — --space-lg identificado em 35+ usos */
+  --space-between-blocks: var(--space-lg);
+
+  /* Espaçamento vertical entre grandes seções — --space-2xl era o margin/padding mais recorrente no layout */
+  --space-section: var(--space-2xl);
+
+  /* Espaçamento de seção reduzido para mobile e tablet — complemento responsivo de --space-section */
+  --space-section-sm: var(--space-xl);
+
+  /* Altura fixa da barra de navegação — valor 64px hardcoded em 2 lugares no nav.css */
+  --nav-height: 64px;
+
+  /* Padding vertical interno das etiquetas (badges) — 1 unidade da grade de 4px */
+  --badge-padding-y: 4px;
+
+}

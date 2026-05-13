@@ -17,7 +17,7 @@
 }
 
 .card--featured {
-  border: 2px solid var(--color-primary-500);
+  border: var(--border-width-interactive) solid var(--color-action-primary);
 }
 
 .card__image {
@@ -43,14 +43,14 @@
 .card__badge {
   display: inline-block;
   align-self: flex-start;
-  padding: 2px var(--space-xs);
+  padding: var(--badge-padding-y) var(--space-xs);
   background-color: var(--color-primary-100);
   color: var(--color-primary-700);
   border-radius: var(--border-radius-sm);
-  font-size: var(--font-xs);
+  font-size: var(--font-size-label);
   font-weight: var(--weight-bold);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--tracking-wide);
 }
 
 .card__title {

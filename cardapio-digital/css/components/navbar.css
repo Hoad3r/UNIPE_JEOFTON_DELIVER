@@ -31,7 +31,7 @@
   font-family: var(--font-heading);
   font-size: var(--font-md);
   font-weight: var(--weight-bold);
-  color: var(--color-primary-500);
+  color: var(--color-brand);
   text-decoration: none;
   transition: color var(--transition-fast);
   flex-shrink: 0;
@@ -39,7 +39,7 @@
 }
 
 .navbar__logo:hover {
-  color: var(--color-primary-700);
+  color: var(--color-action-primary-hover);
 }
 
 .navbar__toggle {
@@ -47,32 +47,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: var(--hamburger-gap);
   width: 40px;
   height: 40px;
   padding: 0;
   background: transparent;
-  border: 2px solid var(--color-primary-500);
+  border: var(--border-width-interactive) solid var(--color-action-primary);
   border-radius: var(--border-radius-sm);
   cursor: pointer;
   flex-shrink: 0;
 }
 
 .navbar__toggle:hover {
-  background-color: var(--color-primary-100);
+  background-color: var(--color-action-primary-bg);
 }
 
 .navbar__toggle:focus-visible {
-  outline: 3px solid var(--color-primary-500);
+  outline: 3px solid var(--color-action-primary);
   outline-offset: 2px;
 }
 
 .navbar__toggle span {
   display: block;
   width: 20px;
-  height: 2.5px;
-  background-color: var(--color-primary-500);
-  border-radius: 2px;
+  height: var(--hamburger-height);
+  background-color: var(--color-action-primary);
+  border-radius: var(--hamburger-height);
   transition: transform var(--transition-normal), opacity var(--transition-fast);
 }
 
@@ -124,8 +124,8 @@
 }
 
 .navbar__menu a:hover {
-  background-color: var(--color-primary-100);
-  color: var(--color-primary-500);
+  background-color: var(--color-action-primary-bg);
+  color: var(--color-action-primary);
   text-decoration: none;
 }
 
@@ -140,11 +140,11 @@
   .navbar__toggle {
     width: 44px;
     height: 44px;
-    gap: 5px;
+    gap: var(--hamburger-gap);
   }
   .navbar__toggle span {
     width: 22px;
-    height: 3px;
+    height: var(--hamburger-height-md);
   }
   .navbar__toggle[aria-expanded="true"] span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
